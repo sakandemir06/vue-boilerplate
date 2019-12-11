@@ -1,10 +1,3 @@
-/* eslint-disable */
-/**
- * 该文件是为了按需加载，剔除掉了一些不需要的框架组件。
- * 减少了编译支持库包大小
- *
- * 当需要更多组件依赖时，在该文件加入即可
- */
 import Vue from 'vue'
 import {
   LocaleProvider,
@@ -47,7 +40,6 @@ import {
   message,
   notification
 } from 'ant-design-vue'
-// import VueCropper from 'vue-cropper'
 
 Vue.use(LocaleProvider)
 Vue.use(Layout)
@@ -86,7 +78,6 @@ Vue.use(Upload)
 Vue.use(Progress)
 Vue.use(Skeleton)
 Vue.use(Popconfirm)
-// Vue.use(VueCropper)
 Vue.use(notification)
 
 Vue.prototype.$confirm = Modal.confirm

@@ -1,0 +1,29 @@
+build-dev:
+  image: node:12
+  tags:
+    - shared
+  stage: build
+  script:
+    - npm install --progress=false
+    - npm run build:dev
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
+  only:
+    - dev
+
+deploy-dev:
+  image: alpine
+  stage: deploy
+  tags:
+    - shared
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 600 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -rav --delete dist/ "$SSH_USER"@"$SSH_HOST":"$SSH_PATH"
+  only:
+    - dev

@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import { login, getInfo, logout, register, getCompanies, setCompany, unSetCompany, updateProfile } from '@/api/login'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
-import { welcome, successMessage } from '@/utils/util'
+import { successMessage } from '@/utils/util'
 
 const user = {
   state: {
     blank: '',
     token: '',
     name: '',
-    welcome: '',
     avatar: '',
     companies: [],
     roles: [],
@@ -23,9 +22,8 @@ const user = {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    SET_NAME: (state, { name, welcome }) => {
+    SET_NAME: (state, { name }) => {
       state.name = name
-      state.welcome = welcome
     },
     SET_ACTIVE_COMPANY: (state, activeCompany) => {
       state.activeCompany = activeCompany
@@ -148,7 +146,7 @@ const user = {
               commit('SET_ACTIVE_COMPANY', result.active_company)
             }
 
-            commit('SET_NAME', { name: result.name, welcome: welcome() })
+            commit('SET_NAME', { name: result.name })
 
             resolve(response)
           })
