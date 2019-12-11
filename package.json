@@ -1,0 +1,80 @@
+{
+  "name": "vue-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:dev": "vue-cli-service build --mode development",
+    "build:preview": "vue-cli-service build --mode preview",
+    "lint": "vue-cli-service lint",
+    "lint:nofix": "vue-cli-service lint --no-fix",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "dependencies": {
+    "@antv/data-set": "^0.10.2",
+    "ant-design-vue": "1.4.0-beta.0",
+    "axios": "^0.19.0",
+    "core-js": "2.6.9",
+    "enquire.js": "^2.1.6",
+    "lodash": "^4.17.15",
+    "lodash.get": "^4.4.2",
+    "lodash.pick": "^4.4.0",
+    "moment": "^2.24.0",
+    "nprogress": "^0.2.0",
+    "viser-vue": "^2.4.6",
+    "vue": "^2.6.10",
+    "vue-clipboard2": "^0.2.1",
+    "vue-cropper": "0.4.9",
+    "vue-i18n": "^8.15.0",
+    "vue-ls": "^3.2.1",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.1.2",
+    "vue-svg-component-runtime": "^1.0.1",
+    "vuex": "^3.1.1",
+    "wangeditor": "^3.1.1"
+  },
+  "devDependencies": {
+    "@ant-design/colors": "^3.2.1",
+    "@babel/polyfill": "7.2.5",
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-import": "^1.11.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "husky": "^3.0.9",
+    "less": "3.9.0",
+    "less-loader": "4.1.0",
+    "prettier": "^1.18.2",
+    "vue-svg-icon-loader": "^2.1.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-theme-color-replacer": "^1.2.17"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}
