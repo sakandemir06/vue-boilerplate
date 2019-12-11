@@ -258,17 +258,6 @@
         ></a-input-number>
       </a-form-item>
       <a-form-item>
-        <div>
-          <a-checkbox @change="handleCheckChange" />
-          <span>
-            <a v-for="(paper, index) in papers" :key="paper.id" @click="$refs.paperModal.show(paper)">
-              {{ index === 0 ? paper.title : ', ' + paper.title }}
-            </a>
-            {{ $t('metinlerini okudum onaylıyorum') }}
-          </span>
-        </div>
-      </a-form-item>
-      <a-form-item>
         <a-button
           size="large"
           type="primary"
@@ -282,13 +271,11 @@
         <router-link class="login" :to="{ name: 'login' }">{{ $t('Zaten Üyeyim') }}</router-link>
       </a-form-item>
     </a-form>
-    <PaperDetail ref="paperModal" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import PaperDetail from '@/views/admin/paper/modules/PaperShow'
 import { mixinDevice } from '@/utils/mixin.js'
 
 const levelNames = {
@@ -311,9 +298,7 @@ const levelColor = {
 }
 export default {
   name: 'Register',
-  components: {
-    PaperDetail
-  },
+  components: {},
   mixins: [mixinDevice],
   data() {
     return {

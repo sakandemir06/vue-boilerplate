@@ -74,44 +74,25 @@ export default {
       state: {
         time: 60,
         loginBtn: false,
-        // login type: 0 email, 1 username, 2 telephone
         loginType: 0,
         smsSendBtn: false
       }
     }
   },
-  created() {
-    // this.requiredTwoStepCaptcha = true
-  },
+  created() {},
   methods: {
     ...mapActions(['Login', 'Logout']),
-    // handler
-    handleUsernameOrEmail(rule, value, callback) {
-      const { state } = this
-      const regex = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
-      if (regex.test(value)) {
-        state.loginType = 0
-      } else {
-        state.loginType = 1
-      }
-      callback()
-    },
-    handleTabClick(key) {
-      this.customActiveKey = key
-      // this.form.resetFields()
-    },
     handleSubmit(e) {
       e.preventDefault()
       const {
         form: { validateFields },
         state,
-        customActiveKey,
         Login
       } = this
 
       state.loginBtn = true
 
-      const validateFieldsKey = customActiveKey === 'tab1' ? ['email', 'password'] : ['mobile', 'captcha']
+      const validateFieldsKey = ['email', 'password']
 
       validateFields(validateFieldsKey, { force: true }, (err, values) => {
         if (!err) {

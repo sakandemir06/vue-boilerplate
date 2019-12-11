@@ -11,12 +11,6 @@ export function successMessage(message = 'Başarılı') {
   Vue.prototype.$message.success(message)
 }
 
-export function welcome() {
-  const arr = ['Deneme', 'Kontrol', 'Bir DOTA', 'Ki']
-  const index = Math.floor(Math.random() * arr.length)
-  return arr[index]
-}
-
 export function toLowerCaseTurkish(value) {
   if (value) {
     var letters = { İ: 'i', I: 'ı', Ş: 'ş', Ğ: 'ğ', Ü: 'ü', Ö: 'ö', Ç: 'ç' }
